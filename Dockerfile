@@ -12,6 +12,9 @@ WORKDIR /app
 # 复制依赖文件
 COPY package.json yarn.lock ./
 
+# 在安装依赖前，先更新容器内的 CA 证书
+RUN apk add --no-cache ca-certificates && update-ca-certificates
+
 # 安装所有依赖，包括开发依赖
 RUN yarn install
 
