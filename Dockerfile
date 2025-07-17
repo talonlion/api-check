@@ -1,14 +1,8 @@
 # 阶段1：基础镜像准备
-FROM node:18-alpine AS base
+FROM node:lts-alpine AS base
 
 # 设置工作目录
 WORKDIR /app
-
-# 配置国内镜像源
-RUN npm config set registry https://registry.npmmirror.com/
-
-# 安装必要的系统依赖（例如 CA 证书）
-RUN apk add --no-cache ca-certificates
 
 # 阶段2：构建应用程序
 FROM base AS builder
