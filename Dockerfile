@@ -9,7 +9,7 @@ COPY package*.json ./
 COPY pnpm-lock.yaml ./
 
 # 安装 pnpm
-RUN npm install -g pnpm
+RUN npm install -g pnpm@8.14.3
 
 # 构建阶段
 FROM base AS builder
